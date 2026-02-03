@@ -1,0 +1,7 @@
+.runtime/
+.claude/
+.beads/
+.logs/
+__pycache__/
+*.pyc
+*.pptx
