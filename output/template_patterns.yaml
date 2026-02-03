@@ -1,0 +1,222 @@
+template_patterns:
+  templates_analyzed: 3
+  slide_formats:
+    21.986x12.368:
+      templates:
+      - ingenuity-qbr-template.pptx
+      - qbr-template.pptx
+      count: 2
+    13.333x7.5:
+      templates:
+      - monthly-report-template.pptx
+      count: 1
+  brand_identity:
+    primary_font: DM Sans
+    font_usage:
+      DM Sans: 1232
+      Arial: 42
+      Aptos Narrow: 14
+      Times: 2
+      Verdana: 1
+    primary_colors:
+    - '#000000'
+    - '#FFFFFF'
+    - '#0065E2'
+    - '#0065E0'
+    - '#190263'
+    - '#1C2B33'
+    color_usage:
+      '#000000': 925
+      '#FFFFFF': 447
+      '#0065E2': 179
+      '#0065E0': 65
+      '#190263': 65
+      '#1C2B33': 60
+      '#00E167': 44
+      '#0065E1': 32
+      '#C00000': 24
+      '#FF0000': 16
+      '#C6EFCE': 13
+      '#0063E0': 12
+      '#0C2631': 12
+      '#FFC7CE': 11
+      '#002060': 10
+    color_roles:
+      brand_blue: '#0065E2'
+      dark_text: '#000000'
+      white_bg: '#FFFFFF'
+      dark_blue: '#190263'
+      dark_grey: '#1C2B33'
+      accent_green: '#00E167'
+  content_types:
+    tables:
+      count: 11
+      common_in: monthly reports
+    charts:
+      count: 20
+      types:
+      - COLUMN_CLUSTERED (51)
+      - DOUGHNUT (-4120)
+    images:
+      count: 101
+      note: includes logos, icons, backgrounds
+    text_boxes: dominant shape type across all templates
+  layout_patterns:
+    usage:
+      Title Only: 62
+      Blank: 2
+      Title and Content: 1
+    note: Title Only is the dominant layout; slides use free-form shapes rather than
+      built-in placeholders
+  themes:
+  - color_scheme_name: Office
+    theme_colors:
+      dk1: windowText
+      lt1: window
+      dk2: 1F497D
+      lt2: EEECE1
+      accent1: 4F81BD
+      accent2: C0504D
+      accent3: 9BBB59
+      accent4: 8064A2
+      accent5: 4BACC6
+      accent6: F79646
+      hlink: FFFFFF
+      folHlink: '800080'
+    font_scheme_name: Office
+    major_font: Calibri
+    minor_font: Calibri
+  - color_scheme_name: New Ingenuity Colours
+    theme_colors:
+      dk1: '000000'
+      lt1: FFFFFF
+      dk2: '000000'
+      lt2: FFFFFF
+      accent1: 03038F
+      accent2: '000000'
+      accent3: FFFFFF
+      accent4: 03038F
+      accent5: '000000'
+      accent6: FFFFFF
+      hlink: 0563C1
+      folHlink: 954F72
+    font_scheme_name: TG Ingenuity
+    major_font: Verdana
+    minor_font: Arial
+  - color_scheme_name: THG Palette
+    theme_colors:
+      dk1: 122D3B
+      lt1: FFFFFF
+      dk2: F0EFEF
+      lt2: '363535'
+      accent1: 5C7482
+      accent2: D49F8F
+      accent3: 5D878A
+      accent4: B9C6CA
+      accent5: 009C91
+      accent6: F2C331
+      hlink: E74E42
+      folHlink: 005CA4
+    font_scheme_name: Office
+    major_font: Calibri Light
+    minor_font: Calibri
+  font_size_hierarchy:
+    heading_large: 60-72pt
+    heading_medium: 28-30pt
+    body_large: 24pt (most common)
+    body_standard: 14-16pt
+    caption_small: 9pt
+    full_distribution:
+      '11.0': 325
+      '24.0': 307
+      '30.0': 87
+      '14.0': 86
+      '20.0': 63
+      '15.0': 48
+      '60.0': 35
+      '28.0': 31
+      '9.0': 30
+      '22.0': 29
+      '12.0': 25
+      '19.8': 20
+      '66.0': 19
+      '16.0': 16
+      '16.5': 12
+per_template:
+- file: ingenuity-qbr-template.pptx
+  slides: 22
+  dimensions: 21.986x12.368
+  slide_flow:
+  - image_slide
+  - image_slide
+  - image_slide
+  - image_slide
+  - content_with_imagery
+  - image_slide
+  - image_slide
+  - chart_slide
+  - content_with_imagery
+  - chart_slide
+  - chart_slide
+  - image_slide
+  - content_with_imagery
+  - content_with_imagery
+  - content_with_imagery
+  - content_with_imagery
+  - content_with_imagery
+  - image_slide
+  - content_with_imagery
+  - image_slide
+  - content_with_imagery
+  - image_slide
+- file: monthly-report-template.pptx
+  slides: 14
+  dimensions: 13.333x7.5
+  slide_flow:
+  - content_with_imagery
+  - image_slide
+  - image_slide
+  - table_slide
+  - data_mixed
+  - table_slide
+  - table_slide
+  - image_slide
+  - table_slide
+  - table_slide
+  - table_slide
+  - image_slide
+  - content_with_imagery
+  - image_slide
+- file: qbr-template.pptx
+  slides: 29
+  dimensions: 21.986x12.368
+  slide_flow:
+  - image_slide
+  - table_slide
+  - table_slide
+  - image_slide
+  - image_slide
+  - image_slide
+  - image_slide
+  - chart_slide
+  - content_with_imagery
+  - image_slide
+  - image_slide
+  - content_with_imagery
+  - chart_slide
+  - chart_slide
+  - chart_slide
+  - image_slide
+  - content_with_imagery
+  - content_with_imagery
+  - content_with_imagery
+  - content_with_imagery
+  - content_with_imagery
+  - image_slide
+  - content_with_imagery
+  - content_with_imagery
+  - image_slide
+  - content_with_imagery
+  - image_slide
+  - content_with_imagery
+  - content_with_imagery
