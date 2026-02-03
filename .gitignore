@@ -5,3 +5,5 @@
 __pycache__/
 *.pyc
 *.pptx
+.venv/
+.pytest_cache/
