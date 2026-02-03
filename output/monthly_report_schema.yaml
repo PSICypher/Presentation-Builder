@@ -1,0 +1,1339 @@
+name: No7 US Monthly eComm Report
+report_type: monthly
+dimensions:
+  width_inches: 13.333
+  height_inches: 7.5
+naming_convention: No7 US x THGi Monthly eComm Report - {month} {year} Overview.pptx
+design:
+  colors:
+    brand_blue: '#0065E0'
+    dark_text: '#000000'
+    white: '#FFFFFF'
+    dark_blue: '#190263'
+    dark_grey: '#1C2B33'
+    accent_green: '#00E167'
+    positive: '#00AA00'
+    negative: '#CC0000'
+    light_gray: '#D1D5DB'
+    divider_bg: '#0065E0'
+  typography:
+    primary_font: DM Sans
+    title_size_pt: 36.0
+    header_size_pt: 24.0
+    body_size_pt: 14.0
+    kpi_number_size_pt: 48.0
+    kpi_label_size_pt: 12.0
+    caption_size_pt: 9.0
+slides:
+- index: 0
+  name: cover_kpis
+  title: Cover + KPIs
+  slide_type: cover
+  data_source: tracker:mtd_reporting
+  layout: Title Only
+  slots:
+  - name: report_title
+    slot_type: text
+    data_key: cover.report_title
+    position:
+      left: 0.5
+      top: 0.4
+      width: 12.0
+      height: 0.8
+    font:
+      name: DM Sans
+      size_pt: 36.0
+      bold: true
+  - name: report_period
+    slot_type: text
+    data_key: cover.report_period
+    position:
+      left: 0.5
+      top: 1.2
+      width: 8.0
+      height: 0.5
+    font:
+      name: DM Sans
+      size_pt: 20.0
+      color: '#1C2B33'
+  - name: kpi_revenue
+    slot_type: kpi_value
+    data_key: cover.total_revenue
+    position:
+      left: 0.5
+      top: 3.0
+      width: 2.0
+      height: 1.5
+    font:
+      name: DM Sans
+      size_pt: 48.0
+      bold: true
+    format_rule:
+      format_type: currency
+    label: Revenue
+    variance_key: cover.revenue_vs_target
+  - name: kpi_orders
+    slot_type: kpi_value
+    data_key: cover.total_orders
+    position:
+      left: 2.7
+      top: 3.0
+      width: 2.0
+      height: 1.5
+    font:
+      name: DM Sans
+      size_pt: 48.0
+      bold: true
+    format_rule:
+      format_type: number
+    label: Orders
+    variance_key: cover.orders_vs_target
+  - name: kpi_aov
+    slot_type: kpi_value
+    data_key: cover.aov
+    position:
+      left: 4.9
+      top: 3.0
+      width: 2.0
+      height: 1.5
+    font:
+      name: DM Sans
+      size_pt: 48.0
+      bold: true
+    format_rule:
+      format_type: currency
+    label: AOV
+    variance_key: cover.aov_vs_target
+  - name: kpi_new_customers
+    slot_type: kpi_value
+    data_key: cover.new_customers
+    position:
+      left: 7.1
+      top: 3.0
+      width: 2.0
+      height: 1.5
+    font:
+      name: DM Sans
+      size_pt: 48.0
+      bold: true
+    format_rule:
+      format_type: number
+    label: New Customers
+    variance_key: cover.nc_vs_target
+  - name: kpi_cvr
+    slot_type: kpi_value
+    data_key: cover.cvr
+    position:
+      left: 9.3
+      top: 3.0
+      width: 2.0
+      height: 1.5
+    font:
+      name: DM Sans
+      size_pt: 48.0
+      bold: true
+    format_rule:
+      format_type: percentage
+    label: CVR
+    variance_key: cover.cvr_vs_target
+  - name: kpi_cos
+    slot_type: kpi_value
+    data_key: cover.cos
+    position:
+      left: 11.5
+      top: 3.0
+      width: 1.5
+      height: 1.5
+    font:
+      name: DM Sans
+      size_pt: 48.0
+      bold: true
+    format_rule:
+      format_type: percentage
+    label: COS
+    variance_key: cover.cos_vs_target
+- index: 1
+  name: toc
+  title: Table of Contents
+  slide_type: toc
+  data_source: static
+  layout: Title Only
+  is_static: true
+  slots:
+  - name: toc_items
+    slot_type: static
+    data_key: toc.items
+    position:
+      left: 1.0
+      top: 1.5
+      width: 11.0
+      height: 5.0
+    font:
+      name: DM Sans
+      size_pt: 14.0
+- index: 2
+  name: divider_ecomm
+  title: eComm Performance
+  slide_type: divider
+  data_source: static
+  layout: Title Only
+  is_static: true
+  slots:
+  - name: section_title
+    slot_type: section_divider
+    data_key: divider.ecomm_title
+    position:
+      left: 0.0
+      top: 0.0
+      width: 13.333
+      height: 7.5
+    font:
+      name: DM Sans
+      size_pt: 36.0
+      bold: true
+      color: '#FFFFFF'
+- index: 3
+  name: executive_summary
+  title: Executive Summary
+  slide_type: data
+  data_source: tracker:raw_data,tracker:channel_deep_dive
+  layout: Title Only
+  slots:
+  - name: slide_title
+    slot_type: text
+    data_key: exec.title
+    position:
+      left: 0.3
+      top: 0.2
+      width: 12.0
+      height: 0.5
+    font:
+      name: DM Sans
+      size_pt: 24.0
+      bold: true
+  - name: performance_table
+    slot_type: table
+    data_key: exec.performance_table
+    position:
+      left: 0.3
+      top: 0.9
+      width: 12.7
+      height: 4.5
+    columns:
+    - header: Channel
+      data_key: channel
+      alignment: left
+      width_inches: 1.8
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: Revenue
+      data_key: revenue
+      alignment: right
+      width_inches: 1.3
+      format_rule:
+        format_type: currency
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: vs Target
+      data_key: revenue_vs_target
+      alignment: right
+      width_inches: 1.0
+      format_rule:
+        format_type: variance_percentage
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: vs LY
+      data_key: revenue_vs_ly
+      alignment: right
+      width_inches: 1.0
+      format_rule:
+        format_type: variance_percentage
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: Orders
+      data_key: orders
+      alignment: right
+      width_inches: 1.0
+      format_rule:
+        format_type: integer
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: Sessions
+      data_key: sessions
+      alignment: right
+      width_inches: 1.1
+      format_rule:
+        format_type: integer
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: CVR
+      data_key: cvr
+      alignment: right
+      width_inches: 0.8
+      format_rule:
+        format_type: percentage
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: AOV
+      data_key: aov
+      alignment: right
+      width_inches: 0.9
+      format_rule:
+        format_type: currency
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: COS
+      data_key: cos
+      alignment: right
+      width_inches: 0.8
+      format_rule:
+        format_type: percentage
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: New Customers
+      data_key: new_customers
+      alignment: right
+      width_inches: 1.3
+      format_rule:
+        format_type: integer
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    row_data_key: exec.performance_rows
+  - name: narrative
+    slot_type: text
+    data_key: exec.narrative
+    position:
+      left: 0.3
+      top: 5.6
+      width: 12.7
+      height: 1.5
+    font:
+      name: DM Sans
+      size_pt: 14.0
+- index: 4
+  name: daily_performance
+  title: Daily Performance
+  slide_type: data
+  data_source: tracker:daily
+  layout: Title Only
+  slots:
+  - name: slide_title
+    slot_type: text
+    data_key: daily.title
+    position:
+      left: 0.3
+      top: 0.2
+      width: 12.0
+      height: 0.5
+    font:
+      name: DM Sans
+      size_pt: 24.0
+      bold: true
+  - name: daily_chart
+    slot_type: chart
+    data_key: daily.chart
+    position:
+      left: 0.3
+      top: 0.9
+      width: 8.5
+      height: 4.5
+    chart_type: column_clustered
+    series:
+    - name: Revenue
+      data_key: daily.revenue_actual
+      color: '#0065E0'
+    - name: Target
+      data_key: daily.revenue_target
+      color: '#D1D5DB'
+    - name: LY
+      data_key: daily.revenue_ly
+      color: '#1C2B33'
+    categories_key: daily.dates
+  - name: campaign_table
+    slot_type: table
+    data_key: daily.campaign_table
+    position:
+      left: 9.0
+      top: 0.9
+      width: 4.0
+      height: 4.5
+    columns:
+    - header: Date
+      data_key: date
+      alignment: left
+      width_inches: 1.0
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: Campaign/Activity
+      data_key: activity
+      alignment: left
+      width_inches: 3.0
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    row_data_key: daily.campaign_rows
+  - name: revenue_gauge
+    slot_type: chart
+    data_key: daily.revenue_gauge
+    position:
+      left: 0.5
+      top: 5.5
+      width: 2.0
+      height: 1.5
+    chart_type: doughnut
+    series:
+    - name: Achieved
+      data_key: daily.revenue_achieved_pct
+      color: '#0065E0'
+    - name: Remaining
+      data_key: daily.revenue_remaining_pct
+      color: '#D1D5DB'
+- index: 5
+  name: promotion_performance
+  title: Promotion Performance
+  slide_type: data
+  data_source: offer_performance_csv
+  layout: Title Only
+  slots:
+  - name: slide_title
+    slot_type: text
+    data_key: promo.title
+    position:
+      left: 0.3
+      top: 0.2
+      width: 12.0
+      height: 0.5
+    font:
+      name: DM Sans
+      size_pt: 24.0
+      bold: true
+  - name: promotion_table
+    slot_type: table
+    data_key: promo.table
+    position:
+      left: 0.3
+      top: 0.9
+      width: 12.7
+      height: 6.0
+    columns:
+    - header: Promotion
+      data_key: promotion_name
+      alignment: left
+      width_inches: 4.0
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: Channel
+      data_key: channel
+      alignment: left
+      width_inches: 1.5
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: Redemptions
+      data_key: redemptions
+      alignment: right
+      width_inches: 1.5
+      format_rule:
+        format_type: integer
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: vs LY
+      data_key: redemptions_vs_ly
+      alignment: right
+      width_inches: 1.0
+      format_rule:
+        format_type: variance_percentage
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: Revenue
+      data_key: revenue
+      alignment: right
+      width_inches: 1.5
+      format_rule:
+        format_type: currency
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: vs LY
+      data_key: revenue_vs_ly
+      alignment: right
+      width_inches: 1.0
+      format_rule:
+        format_type: variance_percentage
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: Discount
+      data_key: discount_amount
+      alignment: right
+      width_inches: 1.2
+      format_rule:
+        format_type: currency
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    row_data_key: promo.rows
+- index: 6
+  name: product_performance
+  title: Product Performance
+  slide_type: data
+  data_source: product_sales_csv
+  layout: Title Only
+  slots:
+  - name: slide_title
+    slot_type: text
+    data_key: product.title
+    position:
+      left: 0.3
+      top: 0.2
+      width: 12.0
+      height: 0.5
+    font:
+      name: DM Sans
+      size_pt: 24.0
+      bold: true
+  - name: product_table
+    slot_type: table
+    data_key: product.table
+    position:
+      left: 0.3
+      top: 0.9
+      width: 12.7
+      height: 6.0
+    columns:
+    - header: Product
+      data_key: product_name
+      alignment: left
+      width_inches: 3.5
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: Units
+      data_key: units
+      alignment: right
+      width_inches: 1.0
+      format_rule:
+        format_type: integer
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: vs LY
+      data_key: units_vs_ly
+      alignment: right
+      width_inches: 0.9
+      format_rule:
+        format_type: variance_percentage
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: Revenue
+      data_key: revenue
+      alignment: right
+      width_inches: 1.3
+      format_rule:
+        format_type: currency
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: vs LY
+      data_key: revenue_vs_ly
+      alignment: right
+      width_inches: 0.9
+      format_rule:
+        format_type: variance_percentage
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: AOV
+      data_key: aov
+      alignment: right
+      width_inches: 0.9
+      format_rule:
+        format_type: currency
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: ASP
+      data_key: avg_selling_price
+      alignment: right
+      width_inches: 0.9
+      format_rule:
+        format_type: currency
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: Discount %
+      data_key: discount_pct
+      alignment: right
+      width_inches: 1.0
+      format_rule:
+        format_type: percentage
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: New Cust
+      data_key: new_customers
+      alignment: right
+      width_inches: 1.0
+      format_rule:
+        format_type: integer
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    row_data_key: product.rows
+- index: 7
+  name: divider_channels
+  title: Channel Deep Dives
+  slide_type: divider
+  data_source: static
+  layout: Title Only
+  is_static: true
+  slots:
+  - name: section_title
+    slot_type: section_divider
+    data_key: divider.channels_title
+    position:
+      left: 0.0
+      top: 0.0
+      width: 13.333
+      height: 7.5
+    font:
+      name: DM Sans
+      size_pt: 36.0
+      bold: true
+      color: '#FFFFFF'
+- index: 8
+  name: crm_performance
+  title: CRM Performance
+  slide_type: data
+  data_source: crm_excel,tracker:email
+  layout: Title Only
+  slots:
+  - name: slide_title
+    slot_type: text
+    data_key: crm.title
+    position:
+      left: 0.3
+      top: 0.2
+      width: 12.0
+      height: 0.5
+    font:
+      name: DM Sans
+      size_pt: 24.0
+      bold: true
+  - name: kpi_emails_sent
+    slot_type: kpi_value
+    data_key: crm.emails_sent
+    position:
+      left: 0.5
+      top: 1.0
+      width: 2.0
+      height: 1.2
+    font:
+      name: DM Sans
+      size_pt: 30.0
+      bold: true
+    format_rule:
+      format_type: integer
+    label: Emails Sent
+    variance_key: crm.emails_sent_vs_ly
+  - name: kpi_open_rate
+    slot_type: kpi_value
+    data_key: crm.open_rate
+    position:
+      left: 2.7
+      top: 1.0
+      width: 2.0
+      height: 1.2
+    font:
+      name: DM Sans
+      size_pt: 30.0
+      bold: true
+    format_rule:
+      format_type: percentage
+    label: Open Rate
+    variance_key: crm.open_rate_vs_ly
+  - name: kpi_ctr
+    slot_type: kpi_value
+    data_key: crm.ctr
+    position:
+      left: 4.9
+      top: 1.0
+      width: 2.0
+      height: 1.2
+    font:
+      name: DM Sans
+      size_pt: 30.0
+      bold: true
+    format_rule:
+      format_type: percentage
+    label: CTR
+    variance_key: crm.ctr_vs_ly
+  - name: kpi_crm_revenue
+    slot_type: kpi_value
+    data_key: crm.revenue
+    position:
+      left: 7.1
+      top: 1.0
+      width: 2.0
+      height: 1.2
+    font:
+      name: DM Sans
+      size_pt: 30.0
+      bold: true
+    format_rule:
+      format_type: currency
+    label: Revenue
+    variance_key: crm.revenue_vs_ly
+  - name: kpi_crm_cvr
+    slot_type: kpi_value
+    data_key: crm.cvr
+    position:
+      left: 9.3
+      top: 1.0
+      width: 2.0
+      height: 1.2
+    font:
+      name: DM Sans
+      size_pt: 30.0
+      bold: true
+    format_rule:
+      format_type: percentage
+    label: CVR
+    variance_key: crm.cvr_vs_ly
+  - name: kpi_crm_aov
+    slot_type: kpi_value
+    data_key: crm.aov
+    position:
+      left: 11.5
+      top: 1.0
+      width: 1.5
+      height: 1.2
+    font:
+      name: DM Sans
+      size_pt: 30.0
+      bold: true
+    format_rule:
+      format_type: currency
+    label: AOV
+    variance_key: crm.aov_vs_ly
+  - name: crm_detail_table
+    slot_type: table
+    data_key: crm.detail_table
+    position:
+      left: 0.3
+      top: 2.8
+      width: 12.7
+      height: 4.2
+    columns:
+    - header: Campaign Type
+      data_key: campaign_type
+      alignment: left
+      width_inches: 2.0
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: Emails Sent
+      data_key: emails_sent
+      alignment: right
+      width_inches: 1.3
+      format_rule:
+        format_type: integer
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: Open Rate
+      data_key: open_rate
+      alignment: right
+      width_inches: 1.1
+      format_rule:
+        format_type: percentage
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: CTR
+      data_key: ctr
+      alignment: right
+      width_inches: 1.0
+      format_rule:
+        format_type: percentage
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: Sessions
+      data_key: sessions
+      alignment: right
+      width_inches: 1.1
+      format_rule:
+        format_type: integer
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: Orders
+      data_key: orders
+      alignment: right
+      width_inches: 1.0
+      format_rule:
+        format_type: integer
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: CVR
+      data_key: cvr
+      alignment: right
+      width_inches: 0.8
+      format_rule:
+        format_type: percentage
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: Revenue
+      data_key: revenue
+      alignment: right
+      width_inches: 1.3
+      format_rule:
+        format_type: currency
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: AOV
+      data_key: aov
+      alignment: right
+      width_inches: 1.0
+      format_rule:
+        format_type: currency
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: vs LY
+      data_key: revenue_vs_ly
+      alignment: right
+      width_inches: 1.1
+      format_rule:
+        format_type: variance_percentage
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    row_data_key: crm.detail_rows
+- index: 9
+  name: affiliate_performance
+  title: Affiliate Performance
+  slide_type: data
+  data_source: affiliate_excel,tracker:affiliate
+  layout: Title Only
+  slots:
+  - name: slide_title
+    slot_type: text
+    data_key: affiliate.title
+    position:
+      left: 0.3
+      top: 0.2
+      width: 12.0
+      height: 0.5
+    font:
+      name: DM Sans
+      size_pt: 24.0
+      bold: true
+  - name: kpi_aff_revenue
+    slot_type: kpi_value
+    data_key: affiliate.revenue
+    position:
+      left: 0.5
+      top: 1.0
+      width: 2.5
+      height: 1.2
+    font:
+      name: DM Sans
+      size_pt: 30.0
+      bold: true
+    format_rule:
+      format_type: currency
+    label: Revenue
+    variance_key: affiliate.revenue_vs_ly
+  - name: kpi_aff_cos
+    slot_type: kpi_value
+    data_key: affiliate.cos
+    position:
+      left: 3.2
+      top: 1.0
+      width: 2.0
+      height: 1.2
+    font:
+      name: DM Sans
+      size_pt: 30.0
+      bold: true
+    format_rule:
+      format_type: percentage
+    label: COS
+    variance_key: affiliate.cos_vs_ly
+  - name: kpi_aff_roas
+    slot_type: kpi_value
+    data_key: affiliate.roas
+    position:
+      left: 5.4
+      top: 1.0
+      width: 2.0
+      height: 1.2
+    font:
+      name: DM Sans
+      size_pt: 30.0
+      bold: true
+    format_rule:
+      format_type: number
+    label: ROAS
+    variance_key: affiliate.roas_vs_ly
+  - name: kpi_aff_orders
+    slot_type: kpi_value
+    data_key: affiliate.orders
+    position:
+      left: 7.6
+      top: 1.0
+      width: 2.0
+      height: 1.2
+    font:
+      name: DM Sans
+      size_pt: 30.0
+      bold: true
+    format_rule:
+      format_type: integer
+    label: Orders
+    variance_key: affiliate.orders_vs_ly
+  - name: kpi_aff_cvr
+    slot_type: kpi_value
+    data_key: affiliate.cvr
+    position:
+      left: 9.8
+      top: 1.0
+      width: 2.0
+      height: 1.2
+    font:
+      name: DM Sans
+      size_pt: 30.0
+      bold: true
+    format_rule:
+      format_type: percentage
+    label: CVR
+    variance_key: affiliate.cvr_vs_ly
+  - name: publisher_table
+    slot_type: table
+    data_key: affiliate.publisher_table
+    position:
+      left: 0.3
+      top: 2.8
+      width: 12.7
+      height: 4.2
+    columns:
+    - header: Publisher
+      data_key: publisher_name
+      alignment: left
+      width_inches: 3.0
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: Revenue
+      data_key: revenue
+      alignment: right
+      width_inches: 1.5
+      format_rule:
+        format_type: currency
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: vs LY
+      data_key: revenue_vs_ly
+      alignment: right
+      width_inches: 1.0
+      format_rule:
+        format_type: variance_percentage
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: Commission
+      data_key: commission
+      alignment: right
+      width_inches: 1.3
+      format_rule:
+        format_type: currency
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: COS
+      data_key: cos
+      alignment: right
+      width_inches: 0.8
+      format_rule:
+        format_type: percentage
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: Orders
+      data_key: orders
+      alignment: right
+      width_inches: 1.0
+      format_rule:
+        format_type: integer
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: CVR
+      data_key: cvr
+      alignment: right
+      width_inches: 0.8
+      format_rule:
+        format_type: percentage
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: Sessions
+      data_key: sessions
+      alignment: right
+      width_inches: 1.1
+      format_rule:
+        format_type: integer
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: AOV
+      data_key: aov
+      alignment: right
+      width_inches: 1.0
+      format_rule:
+        format_type: currency
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    row_data_key: affiliate.publisher_rows
+- index: 10
+  name: seo_performance
+  title: SEO Performance
+  slide_type: data
+  data_source: tracker:organic
+  layout: Title Only
+  slots:
+  - name: slide_title
+    slot_type: text
+    data_key: seo.title
+    position:
+      left: 0.3
+      top: 0.2
+      width: 12.0
+      height: 0.5
+    font:
+      name: DM Sans
+      size_pt: 24.0
+      bold: true
+  - name: kpi_seo_revenue
+    slot_type: kpi_value
+    data_key: seo.revenue
+    position:
+      left: 0.5
+      top: 1.0
+      width: 2.5
+      height: 1.2
+    font:
+      name: DM Sans
+      size_pt: 30.0
+      bold: true
+    format_rule:
+      format_type: currency
+    label: Revenue
+    variance_key: seo.revenue_vs_ly
+  - name: kpi_seo_sessions
+    slot_type: kpi_value
+    data_key: seo.sessions
+    position:
+      left: 3.2
+      top: 1.0
+      width: 2.0
+      height: 1.2
+    font:
+      name: DM Sans
+      size_pt: 30.0
+      bold: true
+    format_rule:
+      format_type: integer
+    label: Sessions
+    variance_key: seo.sessions_vs_ly
+  - name: kpi_seo_cvr
+    slot_type: kpi_value
+    data_key: seo.cvr
+    position:
+      left: 5.4
+      top: 1.0
+      width: 2.0
+      height: 1.2
+    font:
+      name: DM Sans
+      size_pt: 30.0
+      bold: true
+    format_rule:
+      format_type: percentage
+    label: CVR
+    variance_key: seo.cvr_vs_ly
+  - name: kpi_seo_orders
+    slot_type: kpi_value
+    data_key: seo.orders
+    position:
+      left: 7.6
+      top: 1.0
+      width: 2.0
+      height: 1.2
+    font:
+      name: DM Sans
+      size_pt: 30.0
+      bold: true
+    format_rule:
+      format_type: integer
+    label: Orders
+    variance_key: seo.orders_vs_ly
+  - name: kpi_seo_aov
+    slot_type: kpi_value
+    data_key: seo.aov
+    position:
+      left: 9.8
+      top: 1.0
+      width: 2.0
+      height: 1.2
+    font:
+      name: DM Sans
+      size_pt: 30.0
+      bold: true
+    format_rule:
+      format_type: currency
+    label: AOV
+    variance_key: seo.aov_vs_ly
+  - name: seo_narrative
+    slot_type: text
+    data_key: seo.narrative
+    position:
+      left: 0.3
+      top: 2.8
+      width: 12.7
+      height: 4.2
+    font:
+      name: DM Sans
+      size_pt: 14.0
+- index: 11
+  name: divider_outlook
+  title: Outlook
+  slide_type: divider
+  data_source: static
+  layout: Title Only
+  is_static: true
+  slots:
+  - name: section_title
+    slot_type: section_divider
+    data_key: divider.outlook_title
+    position:
+      left: 0.0
+      top: 0.0
+      width: 13.333
+      height: 7.5
+    font:
+      name: DM Sans
+      size_pt: 36.0
+      bold: true
+      color: '#FFFFFF'
+- index: 12
+  name: upcoming_promotions
+  title: Upcoming Promotions
+  slide_type: manual
+  data_source: manual
+  layout: Title Only
+  slots:
+  - name: slide_title
+    slot_type: text
+    data_key: upcoming.title
+    position:
+      left: 0.3
+      top: 0.2
+      width: 12.0
+      height: 0.5
+    font:
+      name: DM Sans
+      size_pt: 24.0
+      bold: true
+  - name: promo_calendar_table
+    slot_type: table
+    data_key: upcoming.table
+    position:
+      left: 0.3
+      top: 0.9
+      width: 12.7
+      height: 6.0
+    columns:
+    - header: Date
+      data_key: date
+      alignment: left
+      width_inches: 2.0
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: Promotion
+      data_key: promotion
+      alignment: left
+      width_inches: 4.0
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: Discount
+      data_key: discount
+      alignment: left
+      width_inches: 2.0
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    - header: Channels
+      data_key: channels
+      alignment: left
+      width_inches: 3.0
+      font:
+        name: DM Sans
+        size_pt: 11.0
+        bold: true
+        color: '#FFFFFF'
+    row_data_key: upcoming.rows
+- index: 13
+  name: next_steps
+  title: Next Steps
+  slide_type: manual
+  data_source: manual
+  layout: Title Only
+  slots:
+  - name: slide_title
+    slot_type: text
+    data_key: next_steps.title
+    position:
+      left: 0.3
+      top: 0.2
+      width: 12.0
+      height: 0.5
+    font:
+      name: DM Sans
+      size_pt: 24.0
+      bold: true
+  - name: action_items
+    slot_type: text
+    data_key: next_steps.items
+    position:
+      left: 0.3
+      top: 0.9
+      width: 12.7
+      height: 6.0
+    font:
+      name: DM Sans
+      size_pt: 14.0
