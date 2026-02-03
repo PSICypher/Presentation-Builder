@@ -1,0 +1,901 @@
+name: Monthly Report Template
+report_type: monthly
+dimensions:
+  width_inches: 13.333
+  height_inches: 7.5
+naming_convention: No7 US x THGi Monthly eComm Report - {month} {year} Overview.pptx
+design:
+  colors:
+    brand_blue: '#0065E0'
+    dark_text: '#000000'
+    white: '#FFFFFF'
+    dark_blue: '#F0EFEF'
+    dark_grey: '#1C2B33'
+    accent_green: '#00E167'
+    positive: '#00AA00'
+    negative: '#CC0000'
+    light_gray: '#D1D5DB'
+    divider_bg: '#0065E0'
+  typography:
+    primary_font: DM Sans
+    title_size_pt: 36.0
+    header_size_pt: 24.0
+    body_size_pt: 14.0
+    kpi_number_size_pt: 48.0
+    kpi_label_size_pt: 12.0
+    caption_size_pt: 9.0
+slides:
+- index: 0
+  name: cover_kpis
+  title: $209.2K
+  slide_type: cover
+  data_source: tracker:mtd_reporting
+  layout: Title Only
+  slots:
+  - name: report_title
+    slot_type: text
+    data_key: cover_kpis.report_title
+    position:
+      left: 1.768
+      top: 1.688
+      width: 10.214
+      height: 0.615
+    font:
+      name: DM Sans
+      size_pt: 36.0
+      bold: true
+    shape_name: Text 0
+  - name: total_revenue
+    slot_type: kpi_value
+    data_key: cover_kpis.total_revenue
+    position:
+      left: 2.184
+      top: 3.264
+      width: 2.521
+      height: 0.75
+    font:
+      name: DM Sans
+      size_pt: 45.0
+      bold: true
+      color: '#0064E0'
+    format_rule:
+      format_type: currency
+    label: Total Revenue
+    variance_key: cover_kpis.total_revenue_variance
+    shape_name: Text 2
+  - name: orders
+    slot_type: kpi_value
+    data_key: cover_kpis.orders
+    position:
+      left: 5.604
+      top: 3.264
+      width: 2.125
+      height: 0.75
+    font:
+      name: DM Sans
+      size_pt: 45.0
+      bold: true
+      color: '#0064E0'
+    format_rule:
+      format_type: number
+    label: Orders
+    variance_key: cover_kpis.orders_variance
+    shape_name: Text 3
+  - name: conversion_rate
+    slot_type: kpi_value
+    data_key: cover_kpis.conversion_rate
+    position:
+      left: 9.003
+      top: 3.264
+      width: 1.771
+      height: 0.75
+    font:
+      name: DM Sans
+      size_pt: 45.0
+      bold: true
+      color: '#0064E0'
+    format_rule:
+      format_type: percentage
+    label: Conversion Rate
+    variance_key: cover_kpis.conversion_rate_variance
+    shape_name: Text 4
+- index: 1
+  name: toc
+  title: Table of Contents
+  slide_type: toc
+  data_source: static
+  layout: Title Only
+  is_static: true
+  slots:
+  - name: toc_title
+    slot_type: static
+    data_key: toc.title
+    position:
+      left: 0.822
+      top: 1.122
+      width: 11.885
+      height: 0.735
+    font:
+      name: DM Sans
+      size_pt: 40.0
+    shape_name: Title 3
+  - name: toc_items
+    slot_type: static
+    data_key: toc.items
+    position:
+      left: 0.822
+      top: 1.857
+      width: 10.042
+      height: 4.225
+    font:
+      name: DM Sans
+      size_pt: 16.5
+      bold: true
+    shape_name: TextBox 1
+- index: 2
+  name: monthly_performance_overview
+  title: Monthly Performance Overview
+  slide_type: divider
+  data_source: static
+  layout: Title Only
+  is_static: true
+  slots:
+  - name: divider_title
+    slot_type: section_divider
+    data_key: monthly_performance_overview.title
+    position:
+      left: 2.291
+      top: 3.373
+      width: 8.751
+      height: 0.754
+    font:
+      name: DM Sans
+      size_pt: 40.0
+    shape_name: object 14
+- index: 3
+  name: january_ecommerce_performance
+  title: January eCommerce Performance
+  slide_type: data
+  data_source: tracker
+  layout: Title Only
+  slots:
+  - name: slide_title
+    slot_type: text
+    data_key: january_ecommerce_performance.title
+    position:
+      left: 1.159
+      top: 0.46
+      width: 7.798
+      height: 0.441
+    font:
+      name: DM Sans
+      size_pt: 24.0
+    shape_name: object 3
+  - name: callout_header
+    slot_type: text
+    data_key: january_ecommerce_performance.callout_header
+    position:
+      left: 0.209
+      top: 4.108
+      width: 12.916
+      height: 3.248
+    font:
+      name: DM Sans
+      size_pt: 11.0
+      bold: true
+    shape_name: TextBox 5
+  - name: main_table
+    slot_type: table
+    data_key: january_ecommerce_performance.main_table
+    position:
+      left: 0.418
+      top: 1.069
+      width: 11.695
+      height: 2.862
+    columns:
+    - header: Holistic
+      data_key: holistic
+      alignment: left
+      width_inches: 2.016
+      font:
+        name: Aptos Narrow
+        size_pt: 13.0
+        bold: true
+        color: '#FFFFFF'
+    - header: Actuals
+      data_key: actuals
+      alignment: left
+      width_inches: 1.714
+      font:
+        name: Aptos Narrow
+        size_pt: 13.0
+        bold: true
+        color: '#FFFFFF'
+    - header: EOM Target
+      data_key: eom_target
+      alignment: left
+      width_inches: 1.936
+      font:
+        name: Aptos Narrow
+        size_pt: 13.0
+        bold: true
+        color: '#FFFFFF'
+    - header: MTD Target
+      data_key: mtd_target
+      alignment: left
+      width_inches: 1.573
+      font:
+        name: Aptos Narrow
+        size_pt: 13.0
+        bold: true
+        color: '#FFFFFF'
+    - header: Vs target
+      data_key: vs_target
+      alignment: left
+      width_inches: 1.573
+      font:
+        name: Aptos Narrow
+        size_pt: 13.0
+        bold: true
+        color: '#FFFFFF'
+    - header: MoM
+      data_key: mom
+      alignment: left
+      width_inches: 1.553
+      font:
+        name: Aptos Narrow
+        size_pt: 13.0
+        bold: true
+        color: '#FFFFFF'
+    - header: MTD YoY
+      data_key: mtd_yoy
+      alignment: left
+      width_inches: 1.331
+      font:
+        name: Aptos Narrow
+        size_pt: 13.0
+        bold: true
+        color: '#FFFFFF'
+    row_data_key: january_ecommerce_performance.main_table_rows
+    shape_name: Table 1
+- index: 4
+  name: ecommerce_performance_daily_view
+  title: eCommerce Performance Daily View
+  slide_type: data
+  data_source: tracker:daily
+  layout: Title Only
+  slots:
+  - name: slide_title
+    slot_type: text
+    data_key: ecommerce_performance_daily_view.title
+    position:
+      left: 1.039
+      top: 0.824
+      width: 7.798
+      height: 0.378
+    font:
+      name: DM Sans
+      size_pt: 22.0
+    shape_name: object 3
+  - name: callout_header
+    slot_type: text
+    data_key: ecommerce_performance_daily_view.callout_header
+    position:
+      left: 7.155
+      top: 1.372
+      width: 5.906
+      height: 3.45
+    font:
+      name: DM Sans
+      size_pt: 12.0
+      bold: true
+    shape_name: TextBox 16
+  - name: main_chart
+    slot_type: chart
+    data_key: ecommerce_performance_daily_view.main_chart
+    position:
+      left: 0.091
+      top: 1.949
+      width: 6.835
+      height: 5.212
+    chart_type: column_clustered
+    categories_key: ecommerce_performance_daily_view.main_chart_categories
+    shape_name: Chart 7
+  - name: main_table
+    slot_type: table
+    data_key: ecommerce_performance_daily_view.main_table
+    position:
+      left: 6.926
+      top: 4.992
+      width: 6.364
+      height: 2.075
+    columns:
+    - header: Campaign
+      data_key: campaign
+      alignment: left
+      width_inches: 2.299
+      font:
+        name: DM Sans
+        size_pt: 9.0
+        bold: true
+        color: '#FFFFFF'
+    - header: Run rate
+      data_key: run_rate
+      alignment: left
+      width_inches: 0.989
+      font:
+        name: DM Sans
+        size_pt: 9.0
+        bold: true
+        color: '#FFFFFF'
+    - header: Actual
+      data_key: actual
+      alignment: left
+      width_inches: 1.146
+      font:
+        name: DM Sans
+        size_pt: 9.0
+        bold: true
+        color: '#FFFFFF'
+    - header: Target
+      data_key: target
+      alignment: left
+      width_inches: 1.096
+      font:
+        name: DM Sans
+        size_pt: 9.0
+        bold: true
+        color: '#FFFFFF'
+    - header: vs Target
+      data_key: vs_target
+      alignment: left
+      width_inches: 0.834
+      font:
+        name: DM Sans
+        size_pt: 9.0
+        bold: true
+        color: '#FFFFFF'
+    row_data_key: ecommerce_performance_daily_view.main_table_rows
+    shape_name: Table 8
+- index: 5
+  name: ecommerce_promotion_performance
+  title: eCommerce Promotion Performance
+  slide_type: data
+  data_source: offer_performance
+  layout: Title Only
+  slots:
+  - name: slide_title
+    slot_type: text
+    data_key: ecommerce_promotion_performance.title
+    position:
+      left: 1.039
+      top: 0.824
+      width: 7.798
+      height: 0.441
+    font:
+      name: DM Sans
+      size_pt: 22.0
+    shape_name: object 3
+  - name: callout_header
+    slot_type: text
+    data_key: ecommerce_promotion_performance.callout_header
+    position:
+      left: 9.461
+      top: 1.576
+      width: 3.849
+      height: 6.249
+    font:
+      name: DM Sans
+      size_pt: 11.0
+      bold: true
+    shape_name: TextBox 16
+  - name: main_table
+    slot_type: table
+    data_key: ecommerce_promotion_performance.main_table
+    position:
+      left: 0.196
+      top: 1.576
+      width: 9.116
+      height: 5.699
+    columns:
+    - header: Offer names
+      data_key: offer_names
+      alignment: left
+      width_inches: 5.579
+      font:
+        name: Aptos Narrow
+        size_pt: 12.0
+        bold: true
+    - header: Redemptions
+      data_key: redemptions
+      alignment: left
+      width_inches: 1.125
+      font:
+        name: Aptos Narrow
+        size_pt: 12.0
+        bold: true
+    - header: Revenue
+      data_key: revenue
+      alignment: left
+      width_inches: 1.387
+      font:
+        name: Aptos Narrow
+        size_pt: 12.0
+        bold: true
+    - header: AVG per Red.
+      data_key: avg_per_red
+      alignment: left
+      width_inches: 1.025
+      font:
+        name: Aptos Narrow
+        size_pt: 12.0
+        bold: true
+    row_data_key: ecommerce_promotion_performance.main_table_rows
+    shape_name: Table 6
+- index: 6
+  name: ecommerce_product_performance_top_15
+  title: eCommerce Product Performance – Top 15
+  slide_type: data
+  data_source: product_sales
+  layout: Title Only
+  slots:
+  - name: slide_title
+    slot_type: text
+    data_key: ecommerce_product_performance_top_15.title
+    position:
+      left: 1.06
+      top: 0.6
+      width: 7.798
+      height: 0.441
+    font:
+      name: DM Sans
+      size_pt: 22.0
+    shape_name: object 3
+  - name: callout_header
+    slot_type: text
+    data_key: ecommerce_product_performance_top_15.callout_header
+    position:
+      left: 1.011
+      top: 5.216
+      width: 11.863
+      height: 2.137
+    font:
+      name: DM Sans
+      size_pt: 11.0
+      bold: true
+    shape_name: TextBox 16
+  - name: main_table
+    slot_type: table
+    data_key: ecommerce_product_performance_top_15.main_table
+    position:
+      left: 0.971
+      top: 1.207
+      width: 11.763
+      height: 3.925
+    columns:
+    - header: Product Title
+      data_key: product_title
+      alignment: left
+      width_inches: 7.565
+      font:
+        name: Aptos Narrow
+        size_pt: 12.0
+        bold: true
+    - header: Units
+      data_key: units
+      alignment: left
+      width_inches: 1.564
+      font:
+        name: Aptos Narrow
+        size_pt: 12.0
+        bold: true
+    - header: Product Revenue
+      data_key: product_revenue
+      alignment: left
+      width_inches: 2.634
+      font:
+        name: Aptos Narrow
+        size_pt: 12.0
+        bold: true
+    row_data_key: ecommerce_product_performance_top_15.main_table_rows
+    shape_name: Table 7
+- index: 7
+  name: monthly_marketing_overview
+  title: Monthly Marketing Overview
+  slide_type: divider
+  data_source: static
+  layout: Title Only
+  is_static: true
+  slots:
+  - name: divider_title
+    slot_type: section_divider
+    data_key: monthly_marketing_overview.title
+    position:
+      left: 2.291
+      top: 3.373
+      width: 8.751
+      height: 0.754
+    font:
+      name: DM Sans
+      size_pt: 40.0
+    shape_name: object 14
+- index: 8
+  name: crm_performance
+  title: CRM Performance
+  slide_type: data
+  data_source: crm_data
+  layout: Title Only
+  slots:
+  - name: slide_title
+    slot_type: text
+    data_key: crm_performance.title
+    position:
+      left: 1.039
+      top: 0.824
+      width: 7.798
+      height: 0.431
+    font:
+      name: DM Sans
+      size_pt: 22.0
+    shape_name: object 3
+  - name: main_table
+    slot_type: table
+    data_key: crm_performance.main_table
+    position:
+      left: 0.52
+      top: 1.31
+      width: 4.188
+      height: 0.649
+    columns:
+    - header: Revenue
+      data_key: revenue
+      alignment: left
+      width_inches: 1.396
+      font:
+        name: DM Sans
+        size_pt: 12.0
+        bold: true
+    - header: Vs Target
+      data_key: vs_target
+      alignment: left
+      width_inches: 1.396
+      font:
+        name: DM Sans
+        size_pt: 12.0
+        bold: true
+    - header: YoY
+      data_key: yoy
+      alignment: left
+      width_inches: 1.396
+      font:
+        name: DM Sans
+        size_pt: 12.0
+        bold: true
+    row_data_key: crm_performance.main_table_rows
+    shape_name: Table 5
+  - name: callout_header
+    slot_type: text
+    data_key: crm_performance.callout_header
+    position:
+      left: 0.321
+      top: 2.637
+      width: 9.421
+      height: 3.618
+    font:
+      name: DM Sans
+      size_pt: 11.0
+      bold: true
+    shape_name: TextBox 12
+  - name: narrative
+    slot_type: text
+    data_key: crm_performance.narrative
+    position:
+      left: 12.001
+      top: 6.642
+      width: 1.263
+      height: 0.858
+    font:
+      name: DM Sans
+      size_pt: 9.0
+      italic: true
+    shape_name: TextBox 6
+  - name: narrative_1
+    slot_type: text
+    data_key: crm_performance.narrative_1
+    position:
+      left: 9.899
+      top: 0.879
+      width: 3.219
+      height: 0.431
+    font:
+      name: DM Sans
+      size_pt: 11.0
+      bold: true
+      italic: true
+    shape_name: TextBox 3
+  - name: table_1
+    slot_type: table
+    data_key: crm_performance.table_1
+    position:
+      left: 5.031
+      top: 1.31
+      width: 4.188
+      height: 1.299
+    columns:
+    - header: Email Type
+      data_key: email_type
+      alignment: left
+      width_inches: 1.396
+      font:
+        name: DM Sans
+        size_pt: 12.0
+        bold: true
+    - header: Revenue
+      data_key: revenue
+      alignment: left
+      width_inches: 1.396
+      font:
+        name: DM Sans
+        size_pt: 12.0
+        bold: true
+    - header: YoY
+      data_key: yoy
+      alignment: left
+      width_inches: 1.396
+      font:
+        name: DM Sans
+        size_pt: 12.0
+        bold: true
+    row_data_key: crm_performance.table_1_rows
+    shape_name: Table 1
+- index: 9
+  name: affiliate_performance
+  title: Affiliate Performance
+  slide_type: data
+  data_source: affiliate_data
+  layout: Title Only
+  slots:
+  - name: slide_title
+    slot_type: text
+    data_key: affiliate_performance.title
+    position:
+      left: 1.039
+      top: 0.824
+      width: 7.798
+      height: 0.431
+    font:
+      name: DM Sans
+      size_pt: 22.0
+    shape_name: object 3
+  - name: main_table
+    slot_type: table
+    data_key: affiliate_performance.main_table
+    position:
+      left: 0.52
+      top: 1.31
+      width: 4.188
+      height: 0.649
+    columns:
+    - header: Revenue
+      data_key: revenue
+      alignment: left
+      width_inches: 1.396
+      font:
+        name: DM Sans
+        size_pt: 12.0
+        bold: true
+    - header: Vs Target
+      data_key: vs_target
+      alignment: left
+      width_inches: 1.396
+      font:
+        name: DM Sans
+        size_pt: 12.0
+        bold: true
+    - header: YoY
+      data_key: yoy
+      alignment: left
+      width_inches: 1.396
+      font:
+        name: DM Sans
+        size_pt: 12.0
+        bold: true
+    row_data_key: affiliate_performance.main_table_rows
+    shape_name: Table 5
+  - name: callout_header
+    slot_type: text
+    data_key: affiliate_performance.callout_header
+    position:
+      left: 0.424
+      top: 2.878
+      width: 12.552
+      height: 4.544
+    font:
+      name: DM Sans
+      size_pt: 11.0
+      bold: true
+    shape_name: TextBox 12
+  - name: table_1
+    slot_type: table
+    data_key: affiliate_performance.table_1
+    position:
+      left: 4.94
+      top: 1.31
+      width: 5.005
+      height: 1.299
+    columns:
+    - header: Publisher
+      data_key: publisher
+      alignment: left
+      width_inches: 1.668
+      font:
+        name: DM Sans
+        size_pt: 12.0
+        bold: true
+    - header: Revenue
+      data_key: revenue
+      alignment: left
+      width_inches: 1.668
+      font:
+        name: DM Sans
+        size_pt: 12.0
+        bold: true
+    - header: YoY
+      data_key: yoy
+      alignment: left
+      width_inches: 1.668
+      font:
+        name: DM Sans
+        size_pt: 12.0
+        bold: true
+    row_data_key: affiliate_performance.table_1_rows
+    shape_name: Table 1
+- index: 10
+  name: seo_performance
+  title: SEO Performance
+  slide_type: data
+  data_source: tracker:organic
+  layout: Title Only
+  slots:
+  - name: slide_title
+    slot_type: text
+    data_key: seo_performance.title
+    position:
+      left: 1.089
+      top: 0.646
+      width: 7.798
+      height: 0.431
+    font:
+      name: DM Sans
+      size_pt: 22.0
+    shape_name: object 3
+  - name: callout_header
+    slot_type: text
+    data_key: seo_performance.callout_header
+    position:
+      left: 0.1
+      top: 1.786
+      width: 13.233
+      height: 5.84
+    font:
+      name: DM Sans
+      size_pt: 11.0
+      bold: true
+    shape_name: TextBox 12
+  - name: main_table
+    slot_type: table
+    data_key: seo_performance.main_table
+    position:
+      left: 0.57
+      top: 1.061
+      width: 4.188
+      height: 0.649
+    columns:
+    - header: Revenue
+      data_key: revenue
+      alignment: left
+      width_inches: 1.396
+      font:
+        name: DM Sans
+        size_pt: 12.0
+        bold: true
+    - header: Vs Target
+      data_key: vs_target
+      alignment: left
+      width_inches: 1.396
+      font:
+        name: DM Sans
+        size_pt: 12.0
+        bold: true
+    - header: YoY
+      data_key: yoy
+      alignment: left
+      width_inches: 1.396
+      font:
+        name: DM Sans
+        size_pt: 12.0
+        bold: true
+    row_data_key: seo_performance.main_table_rows
+    shape_name: Table 8
+- index: 11
+  name: next_steps_and_promotional_plan
+  title: Next Steps and Promotional Plan
+  slide_type: divider
+  data_source: static
+  layout: Title Only
+  is_static: true
+  slots:
+  - name: divider_title
+    slot_type: section_divider
+    data_key: next_steps_and_promotional_plan.title
+    position:
+      left: 2.291
+      top: 3.373
+      width: 8.751
+      height: 0.754
+    font:
+      name: DM Sans
+      size_pt: 40.0
+    shape_name: object 14
+- index: 12
+  name: upcoming_promotions
+  title: Upcoming Promotions
+  slide_type: manual
+  data_source: manual
+  layout: Title Only
+  slots:
+  - name: upcoming_promotions
+    slot_type: text
+    data_key: upcoming_promotions.upcoming_promotions
+    position:
+      left: 7.447
+      top: 1.767
+      width: 4.642
+      height: 0.683
+    font:
+      name: DM Sans
+      size_pt: 24.0
+    shape_name: Rectangle 1
+  - name: november_main_offer_
+    slot_type: text
+    data_key: upcoming_promotions.november_main_offer_
+    position:
+      left: 7.454
+      top: 2.98
+      width: 4.645
+      height: 3.477
+    font:
+      name: DM Sans
+      size_pt: 11.0
+      bold: true
+    shape_name: Rectangle 3
+  - name: next_steps
+    slot_type: text
+    data_key: upcoming_promotions.next_steps
+    position:
+      left: 1.246
+      top: 1.791
+      width: 4.642
+      height: 0.683
+    font:
+      name: DM Sans
+      size_pt: 24.0
+    shape_name: Rectangle 4
+  - name: content
+    slot_type: text
+    data_key: upcoming_promotions.content
+    position:
+      left: 1.253
+      top: 2.982
+      width: 4.645
+      height: 3.543
+    font:
+      name: DM Sans
+      size_pt: 11.0
+    shape_name: Rectangle 5
+- index: 13
+  name: slide_13
+  title: Slide 13
+  slide_type: manual
+  data_source: manual
+  layout: Title Only
